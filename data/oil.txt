@@ -1,0 +1,12 @@
+date         |   dcoilwtico
+2013-01-02   |    93.14
+
+
+
+1219 строка
+
+Daily oil price. Includes values during both the train and test data timeframe.
+(Ecuador is an oil-dependent country and it's economical health is highly vulnerable to shocks in oil prices.)
+
+Ежедневная цена на нефть. Включает значения как во время поезда, так и во время проверки данных.
+(Эквадор является страной, зависящей от нефти, и его экономическое здоровье очень уязвимо к потрясениям в ценах на нефть.)

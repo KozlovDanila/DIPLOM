@@ -1,0 +1,10 @@
+item_nbr |   family    |  class | perishable(скоропортящийся)
+96995    |  GROCERY I  |  1093  |   0
+
+4101 строка
+
+Item metadata, including family, class, and perishable.
+NOTE: Items marked as perishable have a score weight of 1.25; otherwise, the weight is 1.0.
+
+метаданные скоропортящихся элементов, включая семейство, класс и скоропортящиеся.
+Примечание: элементы, помеченные как скоропортящиеся имеют вес оценка 1,25; в противном случае, вес 1,0.

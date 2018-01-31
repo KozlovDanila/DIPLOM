@@ -1,0 +1,8 @@
+  date       |  store_nbr  |  transactions
+2017-08-16   |   1         |   770
+
+83487 строка
+
+The count of sales transactions for each date, store_nbr combination. Only included for the training data timeframe.
+
+Количество сделок купли-продажи на каждую дату, сочетание store_nbr. Только для периода данных обучения.

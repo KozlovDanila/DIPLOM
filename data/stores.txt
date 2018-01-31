@@ -1,0 +1,10 @@
+store_nbr |   city    |  state      | type | cluster
+1         |    Quito  |  Pichincha  |   D  |  13
+
+53 строка
+
+Store metadata, including city, state, type, and cluster.
+cluster is a grouping of similar stores.
+
+Хранить метаданные, включая город, состояние, тип и кластер.
+кластер-это группировка похожих магазинов.

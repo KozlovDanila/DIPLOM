@@ -1,0 +1,15 @@
+id         |   date       |  store_nbr  |  item_nbr |  onpromotion
+125497040  |  2017-08-16  |   1         |   96995   |   False
+
+3370463 строка
+
+Test data, with the date, store_nbr, item_nbr combinations that are to be predicted, along with the onpromotion information.
+NOTE: The test data has a small number of items that are not contained in the training data. Part of the exercise will be
+to predict a new item sales based on similar products..
+The public / private leaderboard split is based on time. All items in the public split are also included in the private split.
+
+Тестовые данные, с датой, store_nbr, item_nbr комбинаций, которые должны быть предсказаны, наряду с информацией onpromotion.
+Примечание: тестовые данные содержат небольшое количество элементов, которые не содержатся в обучающих данных. Часть
+упражнения будет
+предсказать продажи новых номенклатур на основе аналогичных продуктов..
+Публичный / частный раздел лидеров основан на времени. Все товары в общественный раскол также включаются в отдельный сплит.

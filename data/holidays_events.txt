@@ -1,0 +1,26 @@
+date       | type      | locale  | locale_name  | description         | transferred
+2012-03-02 |  Holiday  |  Local  |   Manta      |  Fundacion de Manta |    False
+
+351 строка
+
+Holidays and Events, with metadata
+NOTE: Pay special attention to the transferred column. A holiday that is transferred officially falls on
+that calendar day, but was moved to another date by the government. A transferred day is more like a normal
+day than a holiday. To find the day that it was actually celebrated, look for the corresponding row where type
+is Transfer. For example, the holiday Independencia de Guayaquil was transferred from 2012-10-09 to 2012-10-12,
+which means it was celebrated on 2012-10-12. Days that are type Bridge are extra days that are added to a holiday
+(e.g., to extend the break across a long weekend). These are frequently made up by the type Work Day which is a day
+not normally scheduled for work (e.g., Saturday) that is meant to payback the Bridge.
+Additional holidays are days added a regular calendar holiday, for example, as typically happens around Christmas
+(making Christmas Eve a holiday).
+
+Праздники и события с метаданными
+Примечание: обратите особое внимание на перенесенную колонку. Праздник, который передается официально попадает на
+этот календарный день был перенесен правительством на другую дату. Перенесенный день больше как нормальный
+день, чем праздник. Чтобы узнать день, когда он был фактически отпразднован, найдите соответствующую строку
+есть трансфер. Например, праздник Независимости Гуаякиля был перенесен с 2012-10-09 до 2012-10-12,
+что означает, что он отмечался на 2012-10-12. Дней, Тип моста несколько дополнительных дней, добавленных к празднику
+(например, чтобы продлить перерыв на длинные выходные). Эти часто составлены типом Днем работы который день
+обычно не запланирована работа (например, суббота), которая предназначена для окупаемости моста.
+Дополнительные праздники-это дни, добавляемые регулярным календарным праздником, например, как обычно бывает в Рождество
+(сделать Сочельник праздником).
