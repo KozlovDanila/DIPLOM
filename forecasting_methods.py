@@ -1,7 +1,7 @@
 import numpy as np
 
 DAYS_OF_WEEK = 7
-ITERATION_COUNT = 100000
+ITERATION_COUNT = 100
 
 
 # Простой способ прогнозирования

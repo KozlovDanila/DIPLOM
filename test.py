@@ -1,3 +1,5 @@
+import datetime
+
 from Data import TransactionHistory
 import reader
 import forecasting_methods as forecast
@@ -15,16 +17,24 @@ def get_shops(value):
     for i in range(1, SHOPS_COUNT + 1):
         data = value.loc[i]
         length = len(data)
+        data.index = pd.to_datetime(data.date)
         result[i] = TransactionHistory(data[:length - DAYS_OF_WEEK], data[length - DAYS_OF_WEEK:])
     return result
 
 
-def get_errors(shops):
+def get_errors(shops, weak_day=''):
     simple_error = []
     efron_error = []
     for value in shops.values():
-        correct_value = sum(value.last_weak.transactions)
-        data = value.learning_history.transactions
+        last_weak = value.last_weak
+        learning_history = value.learning_history
+
+        if weak_day != '':
+            last_weak = last_weak.query('weekday==' + weak_day)
+            learning_history = learning_history.query('weekday==' + weak_day)
+
+        correct_value = sum(last_weak.transactions)
+        data = learning_history.transactions
         simple_error.append(abs(correct_value - forecast.simple_forecast(data)))
         efron_error.append(abs(correct_value - forecast.efron(data)))
     return simple_error, efron_error
@@ -44,16 +54,17 @@ def show_bar(simple_error, efron_error):
     plt.show()
 
 
+# 2013-01-07
+# 2017-08-13
+
 if __name__ == '__main__':
     transactions = reader.get_transactions()
+    transactions.sort_index()
+    transactions = transactions.loc['2013-01-07':'2017-08-13']
+    transactions = transactions.reset_index()
+    transactions.index = transactions.store_nbr
+    transactions['weekday'] = [datetime.datetime.strptime(x, '%Y-%m-%d').weekday() for x in transactions.date.values]
+
     shops = get_shops(transactions)
-    simple_error, efron_error = get_errors(shops)
+    simple_error, efron_error = get_errors(shops, '1')
     show_bar(simple_error, efron_error)
-
-
-# Данные заканчиваются в середине недели.
-# То есть если брать просто последние 7 дней из данных, это две половинчатые недели.
-
-# shops[1].last_weak.index = pd.to_datetime(shops[1].last_weak.date)
-# print(shops[1].last_weak.resample('W')['transactions'].mean())
-# print(shops[1].last_weak.date)

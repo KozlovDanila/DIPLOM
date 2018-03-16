@@ -30,4 +30,4 @@ def get_train2():
 
 
 def get_transactions():
-    return pd.read_csv('data/transactions.csv', index_col='store_nbr')
+    return pd.read_csv('data/transactions.csv', index_col='date')
