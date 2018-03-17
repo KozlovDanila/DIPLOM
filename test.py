@@ -16,9 +16,8 @@ def get_shops(value):
     result = {}
     for i in range(1, SHOPS_COUNT + 1):
         data = value.loc[i]
-        length = len(data)
         data.index = pd.to_datetime(data.date)
-        result[i] = TransactionHistory(data[:length - DAYS_OF_WEEK], data[length - DAYS_OF_WEEK:])
+        result[i] = TransactionHistory(data)
     return result
 
 
@@ -35,8 +34,8 @@ def get_errors(shops, weak_day=''):
 
         correct_value = sum(last_weak.transactions)
         data = learning_history.transactions
-        simple_error.append(abs(correct_value - forecast.simple_forecast(data)))
-        efron_error.append(abs(correct_value - forecast.efron(data)))
+        simple_error.append(abs(correct_value - forecast.simple(data, weak_day != '')))
+        efron_error.append(abs(correct_value - forecast.efron(data, weak_day != '')))
     return simple_error, efron_error
 
 
@@ -66,5 +65,6 @@ if __name__ == '__main__':
     transactions['weekday'] = [datetime.datetime.strptime(x, '%Y-%m-%d').weekday() for x in transactions.date.values]
 
     shops = get_shops(transactions)
-    simple_error, efron_error = get_errors(shops, '1')
+    # от 0 до 6 - пн - вс
+    simple_error, efron_error = get_errors(shops)
     show_bar(simple_error, efron_error)
