@@ -34,9 +34,13 @@ def get_errors(shops, weak_day=''):
 
         correct_value = sum(last_weak.transactions)
         data = learning_history.transactions
-        simple_error.append(abs(correct_value - forecast.simple(data, weak_day != '')))
-        efron_error.append(abs(correct_value - forecast.efron(data, weak_day != '')))
+        simple_error.append(MAPE(correct_value, forecast.simple(data, weak_day != '')))
+        efron_error.append(MAPE(correct_value, forecast.efron(data, weak_day != '')))
     return simple_error, efron_error
+
+
+def MAPE(correct_value, forecast_value):
+    return abs(correct_value - forecast_value) / correct_value * 100
 
 
 def show_histogram(data):
