@@ -35,7 +35,7 @@ def get_errors(shops, weak_day=''):
         correct_value = sum(last_weak.transactions)
         data = learning_history.transactions
         simple_error.append(MAPE(correct_value, forecast.simple(data, weak_day != '')))
-        efron_error.append(MAPE(correct_value, forecast.efron(data, weak_day != '')))
+        efron_error.append(MAPE(correct_value, forecast.efron(data, weak_day != '', True)))
     return simple_error, efron_error
 
 
